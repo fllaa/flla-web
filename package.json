@@ -6,6 +6,11 @@
   },
   "private": true,
   "prettier": "@flla/prettier-config",
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx,html,css,json}": [
+      "bun run fmt"
+    ]
+  },
   "trustedDependencies": [
     "sharp"
   ],
@@ -24,7 +29,8 @@
     "preview": "qwik build preview && vite preview --open",
     "serve": "bun server/entry.bun.js",
     "start": "vite --open --mode ssr",
-    "qwik": "qwik"
+    "qwik": "qwik",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@builder.io/qwik": "^1.2.12",
@@ -36,6 +42,8 @@
     "@typescript-eslint/parser": "6.2.0",
     "eslint": "8.45.0",
     "eslint-plugin-qwik": "^1.2.12",
+    "husky": "^8.0.0",
+    "lint-staged": "^14.0.1",
     "prettier": "3.0.0",
     "typescript": "5.1.6",
     "undici": "5.22.1",
