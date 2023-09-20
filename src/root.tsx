@@ -4,6 +4,9 @@ import {
   RouterOutlet,
   ServiceWorkerRegister,
 } from "@builder.io/qwik-city";
+
+import { DarkThemeLauncher } from "~/components/dark-theme-launcher/dark-theme-launcher";
+import { FontPreconnect } from "~/components/font-preconnect/font-preconnect";
 import { RouterHead } from "./components/router-head/router-head";
 
 import "./global.css";
@@ -22,8 +25,13 @@ export default component$(() => {
         <meta charSet="utf-8" />
         <link rel="manifest" href="/manifest.json" />
         <RouterHead />
+        <FontPreconnect />
+        <DarkThemeLauncher />
       </head>
-      <body lang="en">
+      <body
+        class="bg-light-bg text-black dark:bg-dark-bg dark:text-white transition-colors duration-200 ease-in-out"
+        lang="en"
+      >
         <RouterOutlet />
         <ServiceWorkerRegister />
       </body>

@@ -1,16 +1,15 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 
+import { Headline } from "~/components/headline/headline";
+import { HeroCode } from "~/components/hero-code/hero-code";
+
 export default component$(() => {
   return (
-    <>
-      <h1 class="text-4xl">Hi 👋</h1>
-      <p>
-        Can't wait to see what you build with qwik!
-        <br />
-        Happy coding.
-      </p>
-    </>
+    <div class="min-h-screen flex justify-between items-center">
+      <Headline />
+      <HeroCode />
+    </div>
   );
 });
 
