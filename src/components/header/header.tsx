@@ -12,15 +12,15 @@ export const Header = component$(() => {
       : "light";
   });
   return (
-    <header class="fixed top-0 inset-x-0 container flex justify-between items-center py-8">
+    <header class="fixed top-0 inset-x-0 container flex justify-between items-center py-4 md:py-8">
       <a href="/">
-        <h1 class="text-5xl font-bold text-light-primary hover:tracking-wider transition-all duration-200 ease-in-out dark:text-dark-primary">
+        <h1 class="text-3xl md:text-5xl font-bold text-light-primary hover:tracking-wider transition-all duration-200 ease-in-out dark:text-dark-primary">
           flla.
         </h1>
       </a>
       <button
         type="button"
-        class="text-black bg-transparent hover:bg-light-tertiary font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:text-white dark:hover:bg-dark-tertiary transition-colors duration-200 ease-in-out"
+        class="text-black bg-transparent hover:bg-light-tertiary font-medium rounded-lg text-sm dark:text-white p-2 dark:hover:bg-dark-tertiary transition-colors duration-200 ease-in-out"
         onClick$={() => {
           if (theme.value === "dark") {
             localStorage.theme = "light";

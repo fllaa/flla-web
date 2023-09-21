@@ -6,7 +6,7 @@ import { HeroCode } from "~/components/hero-code/hero-code";
 
 export default component$(() => {
   return (
-    <div class="min-h-screen flex justify-between items-center">
+    <div class="min-h-screen flex flex-col md:flex-row justify-center md:justify-between items-center">
       <Headline />
       <HeroCode />
     </div>
