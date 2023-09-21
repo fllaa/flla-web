@@ -19,3 +19,27 @@ export const SunIcon = component$<IconProps>(({ color, size }) => {
 
   return <LucideIcon color={color} size={size} />;
 });
+
+export const GithubIcon = component$<IconProps>(({ color, size }) => {
+  const LucideIcon = qwikify$<Omit<IconProps, "name">>(
+    icons.Github as React.FC,
+  );
+
+  return <LucideIcon color={color} size={size} />;
+});
+
+export const LinkedinIcon = component$<IconProps>(({ color, size }) => {
+  const LucideIcon = qwikify$<Omit<IconProps, "name">>(
+    icons.Linkedin as React.FC,
+  );
+
+  return <LucideIcon color={color} size={size} />;
+});
+
+export const TwitterIcon = component$<IconProps>(({ color, size }) => {
+  const LucideIcon = qwikify$<Omit<IconProps, "name">>(
+    icons.Twitter as React.FC,
+  );
+
+  return <LucideIcon color={color} size={size} />;
+});

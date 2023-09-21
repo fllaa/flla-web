@@ -1,4 +1,5 @@
 import { component$ } from "@builder.io/qwik";
+import { SocialLink } from "~/components/social-link/social-link";
 
 export const Headline = component$(() => {
   return (
@@ -18,6 +19,7 @@ export const Headline = component$(() => {
         </span>{" "}
         with Precision and Passion"
       </h1>
+      <SocialLink />
     </div>
   );
 });
