@@ -1,6 +1,6 @@
 import { component$, useVisibleTask$ } from "@builder.io/qwik";
+import { LuMoon, LuSun } from "@qwikest/icons/lucide";
 
-import { MoonIcon, SunIcon } from "~/components/icon/icon";
 import { useTheme } from "~/contexts/theme";
 
 export const Header = component$(() => {
@@ -20,7 +20,7 @@ export const Header = component$(() => {
       </a>
       <button
         type="button"
-        class="text-black bg-transparent hover:bg-light-tertiary font-medium rounded-lg text-sm dark:text-white p-2 dark:hover:bg-dark-tertiary transition-colors duration-200 ease-in-out"
+        class="text-black bg-transparent hover:bg-light-tertiary font-medium rounded-lg text-xl dark:text-white p-2 dark:hover:bg-dark-tertiary transition-colors duration-200 ease-in-out"
         onClick$={() => {
           if (theme.value === "dark") {
             localStorage.theme = "light";
@@ -33,11 +33,7 @@ export const Header = component$(() => {
           }
         }}
       >
-        {theme.value === "light" ? (
-          <MoonIcon size={20} />
-        ) : (
-          <SunIcon size={20} />
-        )}
+        {theme.value === "light" ? <LuMoon /> : <LuSun />}
       </button>
     </header>
   );

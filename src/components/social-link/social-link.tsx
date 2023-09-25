@@ -1,12 +1,12 @@
 import { component$ } from "@builder.io/qwik";
+import { LuGithub, LuLinkedin, LuTwitter } from "@qwikest/icons/lucide";
 
-import { GithubIcon, LinkedinIcon, TwitterIcon } from "~/components/icon/icon";
 import { SOCIAL_LINKS } from "~/constants/social";
 
 const icons = {
-  github: GithubIcon,
-  linkedin: LinkedinIcon,
-  twitter: TwitterIcon,
+  github: LuGithub,
+  linkedin: LuLinkedin,
+  twitter: LuTwitter,
 };
 
 export const SocialLink = component$(() => {
@@ -20,9 +20,9 @@ export const SocialLink = component$(() => {
             href={social.url}
             target="_blank"
             rel="noopener noreferrer"
-            class={`group inline-flex w-9 ${social.hoverWidthClass} h-9 p-2 justify-start text-black bg-transparent hover:bg-light-tertiary font-medium rounded-lg text-sm dark:text-white dark:hover:bg-dark-tertiary transition-all duration-200 ease-in-out`}
+            class={`group inline-flex w-9 ${social.hoverWidthClass} h-9 p-2 justify-start items-center text-black bg-transparent hover:bg-light-tertiary font-medium rounded-lg text-md dark:text-white dark:hover:bg-dark-tertiary transition-all duration-200 ease-in-out`}
           >
-            <Icon size={20} />
+            <Icon />
             <span class="hidden group-hover:block pl-2">
               @{social.username}
             </span>
