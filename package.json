@@ -54,5 +54,8 @@
   },
   "trustedDependencies": [
     "sharp"
-  ]
+  ],
+  "dependencies": {
+    "clsx": "^2.0.0"
+  }
 }

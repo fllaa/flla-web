@@ -3,6 +3,7 @@ import type { RequestHandler } from "@builder.io/qwik-city";
 
 import { Footer } from "~/components/footer/footer";
 import { Header } from "~/components/header/header";
+import { Navbar } from "~/components/navbar/navbar";
 import { useThemeContextProvider } from "~/contexts/theme";
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
@@ -25,6 +26,7 @@ export default component$(() => {
         <Slot />
       </main>
       <Footer />
+      <Navbar />
     </div>
   );
 });
