@@ -20,7 +20,7 @@ const icons = {
 export const Navbar = component$(() => {
   const loc = useLocation();
   return (
-    <div class="fixed bottom-0 md:top-0 md:bottom-auto md:mt-6 inset-x-0 z-10 container flex justify-around items-center text-center w-full md:w-fit gap-4 p-4 rounded-t-2xl md:rounded-b-2xl bg-light-tertiary dark:bg-dark-tertiary">
+    <div class="fixed bottom-0 md:top-0 md:bottom-auto md:mt-6 inset-x-0 z-10 container flex justify-around items-center text-center w-full md:w-fit gap-4 p-4 md:p-2 rounded-t-2xl md:rounded-b-2xl bg-light-tertiary dark:bg-dark-tertiary md:bg-transparent md:dark:bg-transparent">
       {NAV_LIST.map((nav) => {
         const Icon = icons[nav.title as keyof typeof icons];
         const isActive = loc.url.pathname === nav.url;
@@ -37,7 +37,9 @@ export const Navbar = component$(() => {
             )}
           >
             <Icon />
-            <span class="text-sm">{nav.title}</span>
+            <span class={`${isActive ? "block" : "hidden sm:block"} text-sm`}>
+              {nav.title}
+            </span>
           </Link>
         );
       })}
