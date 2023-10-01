@@ -12,7 +12,7 @@ export const Header = component$(() => {
       : "light";
   });
   return (
-    <header class="fixed top-0 inset-x-0 container flex justify-between items-center py-4 md:py-8">
+    <header class="fixed top-0 inset-x-0 container flex justify-between items-center py-4 md:py-8 bg-light-bg dark:bg-dark-bg transition-all duration-200 ease-in-out z-10">
       <a href="/">
         <h1 class="text-3xl md:text-5xl font-bold text-light-primary hover:tracking-wider transition-all duration-200 ease-in-out dark:text-dark-primary">
           flla.

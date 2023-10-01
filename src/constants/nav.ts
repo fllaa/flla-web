@@ -5,14 +5,14 @@ export const NAV_LIST = [
   },
   {
     title: "Stats",
-    url: "/stats",
+    url: "/stats/",
   },
   {
     title: "Projects",
-    url: "/projects",
+    url: "/projects/",
   },
   {
     title: "Contact",
-    url: "/contact",
+    url: "/contact/",
   },
 ];
