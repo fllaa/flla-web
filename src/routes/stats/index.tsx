@@ -3,14 +3,13 @@ import { type DocumentHead, routeLoader$ } from "@builder.io/qwik-city";
 import { LuArrowUpRight } from "@qwikest/icons/lucide";
 import { StatCard } from "~/components/stat-card/stat-card";
 
-import { mainApi } from "~/lib/api";
 import type { Stats, WakatimeResponse } from "~/types/wakatime";
 
 export const useWakatimeStats = routeLoader$(async (requestEvent) => {
   const apiUrl = requestEvent.env.get("API_URL");
-  const { data } = await mainApi
-    .setBaseURL(apiUrl!)
-    .get<WakatimeResponse<Stats>>("/wakatime/stats");
+  const url = `${apiUrl}/wakatime/stats`;
+  const res = await fetch(url);
+  const data = (await res.json()) as WakatimeResponse<Stats>;
   return data.data;
 });
 

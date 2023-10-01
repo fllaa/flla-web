@@ -56,7 +56,6 @@
     "sharp"
   ],
   "dependencies": {
-    "apisauce": "^3.0.1",
     "clsx": "^2.0.0",
     "echarts": "^5.4.3"
   }
