@@ -1,0 +1,350 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400;1,700&display=swap')
+layer(base);
+@import 'tailwindcss';
+@config "../tailwind.config.ts";
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Modern Portfolio Design System with Animated Mesh Gradients */
+
+@layer base {
+  :root {
+    /* Dark theme base colors */
+    --background: 222 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 267 89% 70%;
+    --primary-foreground: 222 84% 4.9%;
+
+    --secondary: 222 47% 11%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 197 71% 73%;
+    --accent-foreground: 222 84% 4.9%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 267 89% 70%;
+
+    --radius: 0.75rem;
+
+    /* Mesh Gradient Colors */
+    --gradient-primary: 267 89% 70%;
+    --gradient-secondary: 197 71% 73%;
+    --gradient-tertiary: 291 84% 74%;
+    --gradient-quaternary: 174 71% 68%;
+    
+    /* Glass Effect */
+    --glass-background: 222 84% 4.9% / 0.8;
+    --glass-border: 210 40% 98% / 0.1;
+    
+    /* Mesh Animation Variables */
+    --mesh-speed: 20s;
+    --mesh-scale: 1.5;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+    font-feature-settings: 'cv11', 'ss01';
+    font-variation-settings: 'opsz' 32;
+  }
+}
+
+@layer components {
+  /* Animated Mesh Gradient Background */
+  .mesh-gradient {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+  }
+  
+  .mesh-gradient::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+      radial-gradient(circle at 20% 80%, hsl(var(--gradient-primary)) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(var(--gradient-secondary)) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, hsl(var(--gradient-tertiary)) 0%, transparent 50%),
+      radial-gradient(circle at 60% 60%, hsl(var(--gradient-quaternary)) 0%, transparent 50%);
+    animation: mesh-float var(--mesh-speed) ease-in-out infinite;
+    opacity: 0.3;
+  }
+  
+  .mesh-gradient::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+      radial-gradient(circle at 70% 30%, hsl(var(--gradient-secondary)) 0%, transparent 50%),
+      radial-gradient(circle at 30% 70%, hsl(var(--gradient-primary)) 0%, transparent 50%),
+      radial-gradient(circle at 90% 10%, hsl(var(--gradient-quaternary)) 0%, transparent 50%);
+    animation: mesh-float-reverse calc(var(--mesh-speed) * 1.5) ease-in-out infinite;
+    opacity: 0.4;
+  }
+
+  /* Glass Card Effect */
+  .glass-card {
+    background: hsl(var(--glass-background));
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--glass-border));
+    box-shadow: 
+      0 8px 32px 0 hsl(var(--background) / 0.37),
+      inset 0 1px 0 hsl(var(--foreground) / 0.1);
+  }
+
+  /* Hover Glow Effect */
+  .hover-glow {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .hover-glow::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    background: linear-gradient(
+      45deg,
+      hsl(var(--gradient-primary)),
+      hsl(var(--gradient-secondary)),
+      hsl(var(--gradient-tertiary))
+    );
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: add;
+    -webkit-mask-composite: xor;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .hover-glow:hover::before {
+    opacity: 1;
+  }
+
+  /* Animated Gradient Text */
+  .gradient-text {
+    background: linear-gradient(
+      45deg,
+      hsl(var(--gradient-primary)),
+      hsl(var(--gradient-secondary)),
+      hsl(var(--gradient-tertiary)),
+      hsl(var(--gradient-quaternary))
+    );
+    background-size: 300% 300%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradient-shift 3s ease-in-out infinite;
+  }
+
+  /* Section spacing */
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24;
+  }
+
+  /* Smooth scroll */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  /* Custom animations */
+  @keyframes mesh-float {
+    0%, 100% {
+      transform: translate(0px, 0px) rotate(0deg) scale(var(--mesh-scale));
+    }
+    33% {
+      transform: translate(30px, -30px) rotate(120deg) scale(calc(var(--mesh-scale) * 1.1));
+    }
+    66% {
+      transform: translate(-20px, 20px) rotate(240deg) scale(calc(var(--mesh-scale) * 0.9));
+    }
+  }
+  
+  @keyframes mesh-float-reverse {
+    0%, 100% {
+      transform: translate(0px, 0px) rotate(0deg) scale(var(--mesh-scale));
+    }
+    33% {
+      transform: translate(-30px, 30px) rotate(-120deg) scale(calc(var(--mesh-scale) * 0.9));
+    }
+    66% {
+      transform: translate(20px, -20px) rotate(-240deg) scale(calc(var(--mesh-scale) * 1.1));
+    }
+  }
+  
+  @keyframes gradient-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+  
+  @keyframes float-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Animation utilities */
+  .animate-float-up {
+    animation: float-up 0.8s ease-out;
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 1s ease-out;
+  }
+  
+  .animate-delay-100 {
+    animation-delay: 0.1s;
+  }
+  
+  .animate-delay-200 {
+    animation-delay: 0.2s;
+  }
+  
+  .animate-delay-300 {
+    animation-delay: 0.3s;
+  }
+}
