@@ -3,10 +3,20 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, Projector } from "lucide-react";
 
 const Projects = () => {
   const projects = [
+    {
+      title: "Tamago",
+      description: "An anime streaming & manga reader application",
+      longDescription: 
+        "Tamago is an anime streaming and manga reader application that allows users to watch anime series and read manga chapters. Built with Flutter, Dart, and Firebase, it provides a seamless and enjoyable user experience for anime enthusiasts.",
+      image: "https://r2.flla.my.id/20250816_215349.png",
+      technologies: ["Flutter", "Dart", "Firebase"],
+      githubUrl: "https://github.com/fllaa/tamago",
+      featured: true
+    },
     {
       title: "ZapCron",
       description: "A cron-based HTTP webhook automation tool designed to simplify task scheduling.",
@@ -15,7 +25,7 @@ const Projects = () => {
       technologies: ["Next.js", "TypeScript", "Bun", "PostgreSQL", "Drizzle", "Docker"],
       liveUrl: "https://zapcron.flla.my.id",
       githubUrl: "https://github.com/fllaa/zapcron",
-      featured: true
+      featured: false
     },
     {
       title: "Personal Web",
@@ -111,21 +121,23 @@ const Projects = () => {
 
                       {/* Project Links */}
                       <div className="flex gap-3 pt-2">
-                        <Button 
-                          size="sm" 
-                          className="glass-card hover-glow"
-                          asChild
-                        >
-                          <a 
-                            href={project.liveUrl} 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-2"
+                        {project.liveUrl && (
+                          <Button 
+                            size="sm" 
+                            className="glass-card hover-glow"
+                            asChild
                           >
-                            <ExternalLink className="h-4 w-4" />
-                            Live Demo
-                          </a>
-                        </Button>
+                            <a 
+                              href={project.liveUrl} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-2"
+                            >
+                              <ExternalLink className="h-4 w-4" />
+                              Live Demo
+                            </a>
+                          </Button>
+                        )}
                         <Button 
                           variant="outline" 
                           size="sm" 
