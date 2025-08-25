@@ -17,16 +17,55 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    const formData = new FormData(e.target as HTMLFormElement);
+    const data = {
+      firstname: formData.get('firstName') as string,
+      lastname: formData.get('lastName') as string,
+      email: formData.get('email') as string,
+      subject: formData.get('subject') as string,
+      message: formData.get('message') as string
+    };
     
-    toast({
-      title: "Message sent successfully!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
-    
-    setIsSubmitting(false);
-    (e.target as HTMLFormElement).reset();
+    try {
+      const response = await fetch('https://n8n.flla.my.id/webhook/2b5243aa-a396-4f57-b264-3462e58a9c23', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+      });
+      
+      const result = await response.json();
+      
+      if (response.status === 200) {
+         toast({
+           title: "Message sent successfully!",
+           description: result.message || "Thank you for reaching out. I'll get back to you soon.",
+         });
+         (e.target as HTMLFormElement).reset();
+       } else if (response.status === 429) {
+         toast({
+           title: "Rate limit exceeded",
+           description: result.message || "Please try again later.",
+           variant: "destructive"
+         });
+       } else {
+         toast({
+           title: "Failed to send message",
+           description: result.message || "Something went wrong. Please try again.",
+           variant: "destructive"
+         });
+       }
+     } catch (error) {
+       console.error('Error sending message:', error);
+       toast({
+         title: "Network Error",
+         description: "Failed to connect to server. Please check your internet connection and try again.",
+         variant: "destructive"
+       });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [

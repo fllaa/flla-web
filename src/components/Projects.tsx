@@ -75,7 +75,7 @@ const Projects = () => {
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="relative w-full h-64 md:h-full object-contain transition-transform duration-500 scale-80 group-hover:scale-100 z-10"
+                      className="relative w-full h-64 md:h-full object-contain transition-transform duration-500 lg:scale-80 group-hover:scale-100 z-10"
                     />
                     {/* <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent z-10"></div> */}
                   </div>
